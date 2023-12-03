@@ -49,3 +49,20 @@ static vector<string> ltrim_vec(vector<string> s,
     i++;
   return vector<string>(s.begin() + i, s.end());
 }
+
+static vector<pair<int, int>> surrounding(int x, int y, int row_bound,
+                                          int col_bound) {
+  vector<pair<int, int>> coords;
+  for (int i = x - 1; i <= x + 1; i++) {
+    for (int j = y - 1; j <= y + 1; j++) {
+      if (i == x && y == j)
+        continue;
+      if (i < 0 || j < 0)
+        continue;
+      if (i >= row_bound || j >= col_bound)
+        continue;
+      coords.push_back({i, j});
+    }
+  }
+  return coords;
+}
