@@ -23,6 +23,17 @@ static vector<string> split(const string s, const char delimiter = ' ') {
   return v;
 }
 
+// For variable number of spaces
+static vector<string> split_n_spaces(const string s) {
+  istringstream iss(s);
+  vector<string> v;
+  string token;
+  while (iss >> token)
+    if (!token.empty())
+      v.push_back(token);
+  return v;
+}
+
 static string join(vector<string> v, const char delimiter = ' ') {
   return accumulate(next(v.begin()), v.end(), v[0],
                     [&](string a, string b) { return a + delimiter + b; });
@@ -50,6 +61,18 @@ static vector<string> ltrim_vec(vector<string> s,
   return vector<string>(s.begin() + i, s.end());
 }
 
+static vector<string> rtrim_vec(vector<string> s,
+                                const string delimiter = " ") {
+  int i = s.size() - 1;
+  while (s[i] == delimiter)
+    i--;
+  return vector<string>(s.begin(), s.begin() + i + 1);
+}
+
+static vector<string> trim_vec(vector<string> s, const string delimiter = " ") {
+  return ltrim_vec(rtrim_vec(s, delimiter), delimiter);
+}
+
 static vector<pair<int, int>> surrounding(int x, int y, int row_bound,
                                           int col_bound) {
   vector<pair<int, int>> coords;
@@ -65,4 +88,12 @@ static vector<pair<int, int>> surrounding(int x, int y, int row_bound,
     }
   }
   return coords;
+}
+
+static vector<int> str_to_int_trim(vector<string> s) {
+  s = trim_vec(s, "");
+  vector<int> v;
+  for (auto e : s)
+    v.push_back(stoi(trim(e)));
+  return v;
 }
