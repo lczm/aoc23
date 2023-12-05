@@ -1,0 +1,1 @@
+from sys import stdin; print(sum(1 << (n - 1) for n in (len(set.intersection(*((set(map(int, xs.split()))) for xs in line.rstrip().split(': ')[1].split(' | ')))) for line in stdin) if n > 0))
