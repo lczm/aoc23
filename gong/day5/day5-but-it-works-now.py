@@ -1,3 +1,5 @@
+# dear God, pls let this run amen
+
 def a(deets, sd, mapp):
     return min([chunk(mapp, 'seed', 'location', seed) for seed in sd])
 
