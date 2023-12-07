@@ -1,4 +1,5 @@
 main
+!main/
 *main.dSYM/
 .DS_Store
 
