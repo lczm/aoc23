@@ -1,6 +1,5 @@
 #include "../utils.cpp"
 #include <bits/stdc++.h>
-#include <ostream>
 using namespace std;
 
 long calc(long time, long distance) {
