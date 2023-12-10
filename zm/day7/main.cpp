@@ -1,8 +1,5 @@
 #include "../utils.cpp"
 #include <bits/stdc++.h>
-#include <algorithm>
-#include <ostream>
-#include <unordered_map>
 using namespace std;
 
 enum Type {
