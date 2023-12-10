@@ -70,3 +70,29 @@ Cargo.lock
 
 # MSVC Windows builds of rustc generate these, which store debugging information
 *.pdb
+
+### Metals ###
+.metals/
+.bloop/
+project/**/metals.sbt
+
+### SBT ###
+# Simple Build Tool
+# http://www.scala-sbt.org/release/docs/Getting-Started/Directories.html#configuring-version-control
+
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+.history
+.cache
+.lib/
+
+### SBT Patch ###
+.bsp/
+
+### Scala ###
+*.class
+*.log
