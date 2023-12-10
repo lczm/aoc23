@@ -35,37 +35,36 @@ static vector<string> split_n_spaces(const string s) {
 }
 
 static string join(vector<string> v, const char delimiter = ' ') {
-  return accumulate(next(v.begin()), v.end(), v[0],
-                    [&](string a, string b) { return a + delimiter + b; });
+  return accumulate(next(v.begin()), v.end(), v[0], [&](string a, string b) { return a + delimiter + b; });
 }
 
-static string &ltrim(string &s, const char delimiter = ' ') {
+static string join_empty(vector<string> v) {
+  return accumulate(next(v.begin()), v.end(), v[0], [&](string a, string b) { return a + b; });
+}
+
+static string& ltrim(string& s, const char delimiter = ' ') {
   s.erase(0, s.find_first_not_of(delimiter));
   return s;
 }
 
-static string &rtrim(string &s, const char delimiter = ' ') {
+static string& rtrim(string& s, const char delimiter = ' ') {
   s.erase(s.find_last_not_of(delimiter) + 1);
   return s;
 }
 
-static string &trim(string s, const char delimiter = ' ') {
+static string& trim(string s, const char delimiter = ' ') {
   return ltrim(rtrim(s, delimiter), delimiter);
 }
 
-static vector<string> ltrim_vec(vector<string> s,
-                                const string delimiter = " ") {
+static vector<string> ltrim_vec(vector<string> s, const string delimiter = " ") {
   int i = 0;
-  while (s[i] == delimiter)
-    i++;
+  while (s[i] == delimiter) i++;
   return vector<string>(s.begin() + i, s.end());
 }
 
-static vector<string> rtrim_vec(vector<string> s,
-                                const string delimiter = " ") {
+static vector<string> rtrim_vec(vector<string> s, const string delimiter = " ") {
   int i = s.size() - 1;
-  while (s[i] == delimiter)
-    i--;
+  while (s[i] == delimiter) i--;
   return vector<string>(s.begin(), s.begin() + i + 1);
 }
 
@@ -73,8 +72,7 @@ static vector<string> trim_vec(vector<string> s, const string delimiter = " ") {
   return ltrim_vec(rtrim_vec(s, delimiter), delimiter);
 }
 
-static vector<pair<int, int>> surrounding(int x, int y, int row_bound,
-                                          int col_bound) {
+static vector<pair<int, int>> surrounding(int x, int y, int row_bound, int col_bound) {
   vector<pair<int, int>> coords;
   for (int i = x - 1; i <= x + 1; i++) {
     for (int j = y - 1; j <= y + 1; j++) {
@@ -93,7 +91,6 @@ static vector<pair<int, int>> surrounding(int x, int y, int row_bound,
 static vector<int> str_to_int_trim(vector<string> s) {
   s = trim_vec(s, "");
   vector<int> v;
-  for (auto e : s)
-    v.push_back(stoi(trim(e)));
+  for (auto e : s) v.push_back(stoi(trim(e)));
   return v;
 }
