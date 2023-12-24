@@ -94,3 +94,11 @@ static vector<int> str_to_int_trim(vector<string> s) {
   for (auto e : s) v.push_back(stoi(trim(e)));
   return v;
 }
+
+static bool bounds_check(int x, int y, int row_bound, int col_bound) {
+  if (x < 0 || x > row_bound - 1)
+    return false;
+  if (y < 0 || y > col_bound - 1)
+    return false;
+  return true;
+}
