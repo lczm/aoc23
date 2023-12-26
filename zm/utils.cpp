@@ -94,3 +94,22 @@ static vector<int> str_to_int_trim(vector<string> s) {
   for (auto e : s) v.push_back(stoi(trim(e)));
   return v;
 }
+
+static bool bounds_check(int x, int y, int row_bound, int col_bound) {
+  if (x < 0 || x > row_bound - 1)
+    return false;
+  if (y < 0 || y > col_bound - 1)
+    return false;
+  return true;
+}
+
+template <typename T>
+static vector<vector<T>> transpose(vector<vector<T>> v) {
+  vector<vector<T>> t(v[0].size(), vector<T>());
+  for (int i = 0; i < v.size(); i++) {
+    for (int j = 0; j < v[i].size(); j++) {
+      t[j].push_back(v[i][j]);
+    }
+  }
+  return t;
+}
