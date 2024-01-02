@@ -113,3 +113,14 @@ static vector<vector<T>> transpose(vector<vector<T>> v) {
   }
   return t;
 }
+
+static string repeat(string s, int count, const char delimiter = ' ') {
+  string repeated;
+
+  for (int i = 0; i < count; i++) {
+    repeated += s;
+    if (i != count - 1) repeated += delimiter;
+  }
+
+  return repeated;
+}
