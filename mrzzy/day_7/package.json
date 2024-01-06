@@ -1,0 +1,21 @@
+{
+  "name": "day_7",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "AOC Day 7",
+  "main": "index.js",
+  "scripts": {
+    "it": "tsc && node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "gts": "^5.2.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "heap-js": "^2.3.0"
+  }
+}
